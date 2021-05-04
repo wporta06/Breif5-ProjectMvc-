@@ -1,31 +1,33 @@
-<?php 
-require_once './views/includes/header.php';
+<?php
 require_once './autoload.php';
-require_once './controllers/HomeController.php';
+require_once("./views/includes/header.php");
 
 $home = new HomeController();
-// $home->index($_GET['page']);
-$pages=['add','home','delete','update','logout'];
 
-if(isset($_SESSION['logged']) && $_SESSION['logged'] === true){ //if logged show data
-    if(isset($_GET['page'])){
-        if(in_array($_GET['page'],$pages)){
-            $page = $_GET['page'];
-            $home->index($page);
+$pages = [
+        'home','dashboard','update','delete','add','register','login','logout'
+    ];
+
+if(isset($_GET['page'])){
+    if(in_array($_GET['page'],$pages)){
+        $page = $_GET['page'];
+        if($page === "dashboard" || $page === "delete"
+            || $page === "add"  || $page === "update" ){
+                if(isset($_SESSION['admin']) && $_SESSION['admin'] == true){
+                    $admin = new AdminController();
+                    $admin->index($page);
+                }else{
+                    include('views/includes/404.php');
+                    // $home->index("login"); or this
+                }
         }else{
-            include('views/includes/404.php');
+            $home->index($page);
         }
     }else{
-        $home->index('home');
+        include('views/includes/404.php');
     }
-    
-    
-    // <!-- to show the footer -->
-require_once './views/includes/footer.php';
-
-
-}else if(isset($_GET['page']) && $_GET['page'] === 'register'){ //if register show register.php page
-	$home->index('register');
 }else{
-	$home->index('login');
+    $home->index("home");
 }
+
+require_once("./views/includes/footer.php");
