@@ -38,7 +38,7 @@ class UsersController{
             echo $result;
         }
     }
-    public function logout(){
+    public static function logout(){
         session_destroy();
     }
 }

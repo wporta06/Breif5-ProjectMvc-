@@ -1,15 +1,9 @@
 <?php 
-	// if(isset($_POST['find'])){ //for the shearch box
-	// 	$data = new EmployesController();
-	// 	$employes = $data->findEmployes();
-	// }else{
-	// 	$data = new EmployesController();
-	// 	$employes = $data->getAllEmployes();
-	// 	// print_r($employes);
-	// }
+	
+		$data = new ClassController();
+		$cllasses = $data->getAllClass();
+		// print_r($classes);
 ?>
-
-
 
 
 <div class="container">
@@ -37,13 +31,10 @@
 					    </tr>
 					  </thead>
 					  <tbody>
-					    <?php foreach($classes as $classes):?>
+					    <?php foreach($cllasses as $classes):?>
 					    	<tr>
-						      <th scope="row"><?php echo $classes['nom'].' '.$classes['prenom']; ?></th>
-						      <td><?php echo $classes['matricule'];?></td>
-						      <td><?php echo $classes['depart'];?></td>
-						      <td><?php echo $classes['poste'];?></td>
-						      <td><?php echo $classes['date_emb'];?></td>
+						      <th scope="row"><?php echo $classes['classname']; ?></th>
+						      <td><?php echo $classes['groupnumber'];?></td>
 						      <td>
 						      	<?php echo $classes['statut']
 						      			?   //ternary operation

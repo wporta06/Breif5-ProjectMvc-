@@ -1,4 +1,6 @@
-<?php 
-	UsersController::logout();
-	Redirect::to('login');
+
+<?php
+$user = new UsersController();
+$user->logout();
+Redirect::to("login");
 ?>
