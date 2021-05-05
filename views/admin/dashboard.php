@@ -2,7 +2,7 @@
 	
 		$data = new ClassController();
 		$cllasses = $data->getAllClass();
-		// print_r($classes);
+		// print_r($cllasses);
 ?>
 
 
@@ -38,14 +38,14 @@
 						      <td>
 						      	<?php echo $classes['statut']
 						      			?   //ternary operation
-						      			'<span class="badge badge-success">Active</span>'
+						      			'<span class="badge badge-success">1</span>'
 						      			:
-						      			'<span class="badge badge-danger">Resilié</span>';
+						      			'<span class="badge badge-danger">0</span>';
 						      ;?></td>
 						      <td class="d-flex flex-row">
                               <!-- update and delete button -->
 						      	<form method="post" class="mr-1" action="update">
-						      		<input type="hidden" name="id" value="<?php echo $classes['id'];?>">
+						      		<input type="hidden" name="id" value="<?php echo $classes['id'];?>"> <!-- send id  -->
 						      		<button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>
 						      	</form>
 						      	<form method="post" class="mr-1" action="delete">

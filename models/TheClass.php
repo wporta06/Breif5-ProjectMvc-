@@ -1,7 +1,7 @@
 <?php 
 
 class TheClass {
-
+// done
 	static public function getAll(){
 		$stmt = DB::connect()->prepare('SELECT * FROM classes');
 		$stmt->execute();
@@ -10,28 +10,24 @@ class TheClass {
 		$stmt = null;
 	}
 
-	static public function getEmploye($data){
+	static public function getClasse($data){
 		$id = $data['id'];
 		try{
-			$query = 'SELECT * FROM employes WHERE id=:id';
+			$query = 'SELECT * FROM classes WHERE id=:id';
 			$stmt = DB::connect()->prepare($query);
 			$stmt->execute(array(":id" => $id));
-			$employe = $stmt->fetch(PDO::FETCH_OBJ);
-			return $employe;
+			$classe = $stmt->fetch(PDO::FETCH_OBJ);
+			return $classe;
 		}catch(PDOException $ex){
 			echo 'erreur' . $ex->getMessage();
 		}
 	}
-
+// done
 	static public function add($data){
-		$stmt = DB::connect()->prepare('INSERT INTO employes (nom,prenom,matricule,depart,poste,date_emb,statut)
-			VALUES (:nom,:prenom,:matricule,:depart,:poste,:date_emb,:statut)');
-		$stmt->bindParam(':nom',$data['nom']);
-		$stmt->bindParam(':prenom',$data['prenom']);
-		$stmt->bindParam(':matricule',$data['matricule']);
-		$stmt->bindParam(':depart',$data['depart']);
-		$stmt->bindParam(':poste',$data['poste']);
-		$stmt->bindParam(':date_emb',$data['date_emb']);
+		$stmt = DB::connect()->prepare('INSERT INTO classes (classname,groupnumber,statut)
+			VALUES (:classname,:groupnumber,:statut)');
+		$stmt->bindParam(':classname',$data['classname']);
+		$stmt->bindParam(':groupnumber',$data['groupnumber']);
 		$stmt->bindParam(':statut',$data['statut']);
 
 		if($stmt->execute()){
@@ -39,32 +35,29 @@ class TheClass {
 		}else{
 			return 'error';
 		}
-		$stmt->close();
+		// $stmt->close();
 		$stmt = null;
 	}
+
 	static public function update($data){
-		$stmt = DB::connect()->prepare('UPDATE employes SET nom= :nom,prenom=:prenom,matricule=:matricule,depart=:depart,poste=:poste,date_emb=:date_emb,statut=:statut WHERE id=:id');
+		$stmt = DB::connect()->prepare('UPDATE classes SET classname= :classname,groupnumber=:groupnumber,statut=:statut WHERE id=:id');
 		$stmt->bindParam(':id',$data['id']);
-		$stmt->bindParam(':nom',$data['nom']);
-		$stmt->bindParam(':prenom',$data['prenom']);
-		$stmt->bindParam(':matricule',$data['matricule']);
-		$stmt->bindParam(':depart',$data['depart']);
-		$stmt->bindParam(':poste',$data['poste']);
-		$stmt->bindParam(':date_emb',$data['date_emb']);
+		$stmt->bindParam(':classname',$data['classname']);
+		$stmt->bindParam(':groupnumber',$data['groupnumber']);
 		$stmt->bindParam(':statut',$data['statut']);
 		if($stmt->execute()){
 			return 'ok';
 		}else{
 			return 'error';
 		}
-		$stmt->close();
+		// $stmt->close();
 		$stmt = null;
 	}
-
+// done
 	static public function delete($data){
 		$id = $data['id'];
 		try{
-			$query = 'DELETE FROM employes WHERE id=:id';
+			$query = 'DELETE FROM classes WHERE id=:id';
 			$stmt = DB::connect()->prepare($query);
 			$stmt->execute(array(":id" => $id));
 			if($stmt->execute()){

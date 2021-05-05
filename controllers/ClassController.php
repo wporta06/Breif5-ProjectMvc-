@@ -1,72 +1,64 @@
 <?php 
 
 class ClassController{
-
+// done
 	public function getAllClass(){
 		$AllClass = TheClass::getAll();
 		return $AllClass;
 	}
 
-	public function getOneEmploye(){
+	public function getOneClasse(){
 		if(isset($_POST['id'])){
 			$data = array(
 				'id' => $_POST['id']
 			);
-			$employe = Employe::getEmploye($data);
-			return $employe;
+			$classe = TheClass::getClasse($data);
+			return $classe;
 		}
 	}
 	
-
-	public function addEmploye(){
+// done
+	public function addClasse(){
 		if(isset($_POST['submit'])){
 			$data = array(
-				'nom' => $_POST['nom'],
-				'prenom' => $_POST['prenom'],
-				'matricule' => $_POST['mat'],
-				'depart' => $_POST['depart'],
-				'poste' => $_POST['poste'],
-				'date_emb' => $_POST['date_emb'],
+				'classname' => $_POST['classname'],
+				'groupnumber' => $_POST['groupnumber'],
 				'statut' => $_POST['statut'],
 			);
-			$result = Employe::add($data);
+			$result = TheClass::add($data);
 			if($result === 'ok'){
 				Session::set('success','Employé Ajouté');
-				Redirect::to('home');
+				Redirect::to('dashboard');
 			}else{
 				echo $result;
 			}
 		}
 	}
 
-	public function updateEmploye(){
+	public function updateClasse(){
 		if(isset($_POST['submit'])){
 			$data = array(
 				'id' => $_POST['id'],
-				'nom' => $_POST['nom'],
-				'prenom' => $_POST['prenom'],
-				'matricule' => $_POST['mat'],
-				'depart' => $_POST['depart'],
-				'poste' => $_POST['poste'],
-				'date_emb' => $_POST['date_emb'],
+				'classname' => $_POST['classname'],
+				'groupnumber' => $_POST['groupnumber'],
 				'statut' => $_POST['statut'],
 			);
-			$result = Employe::update($data);
+			$result = TheClass::update($data);
 			if($result === 'ok'){
 				Session::set('success','Employé Modifié');
-				Redirect::to('home');
+				Redirect::to('dashboard');
 			}else{
 				echo $result;
 			}
 		}
 	}
-	public function deleteEmploye(){
+	public function deleteClasse(){
 		if(isset($_POST['id'])){
 			$data['id'] = $_POST['id'];
-			$result = Employe::delete($data);
+			$result = TheClass::delete($data);
 			if($result === 'ok'){
 				Session::set('success','Employé Supprimé');
-				Redirect::to('home');
+				Redirect::to('dashboard');
 			}else{
 				echo $result;
 			}
