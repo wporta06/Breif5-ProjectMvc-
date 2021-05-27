@@ -38,9 +38,9 @@
 						      <td>
 						      	<?php echo $classes['statut']
 						      			?   //ternary operation
-						      			'<span class="badge badge-success">1</span>'
+						      			'<span class="badge badge-success">Reserved</span>'
 						      			:
-						      			'<span class="badge badge-danger">0</span>';
+						      			'<span class="badge badge-danger">Not Reserved</span>';
 						      ;?></td>
 						      <td class="d-flex flex-row">
                               <!-- update and delete button -->

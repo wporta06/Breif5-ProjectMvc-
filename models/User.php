@@ -17,10 +17,10 @@ class User{
 	
 ///here
     static public function createUser($data){
-        $stmt = DB::connect()->prepare('INSERT INTO users (fullname
+        $stmt = DB::connect()->prepare('INSERT INTO users (matiere
         ,username,email,password)
-        VALUES (:fullname,:username,:email,:password)');
-        $stmt->bindParam(':fullname',$data['fullname']);
+        VALUES (:matiere,:username,:email,:password)');
+        $stmt->bindParam(':matiere',$data['matiere']);
         $stmt->bindParam(':username',$data['username']);
         $stmt->bindParam(':email',$data['email']);
         $stmt->bindParam(':password',$data['password']);

@@ -2,6 +2,6 @@ Options All -Indexes
 
 RewriteEngine On
 
-RewriteBase /OOP/gestion-epmloyer/
+RewriteBase /ooP/gestion-class/
 
 RewriteRule ^([-a-zA-Z0-9]+)$ index.php?page=$1

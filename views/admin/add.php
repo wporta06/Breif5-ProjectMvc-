@@ -26,8 +26,8 @@
 						<div class="form-group">
                             <label for="prenom">Statut*</label>
 							<select class="form-control" name="statut">
-								<option value="1">1</option>
-								<option value="0">0</option>
+								<option value="1">Reserved</option>
+								<option value="0">Not Reserved</option>
 							</select>
 						</div>
 						<div class="form-group">

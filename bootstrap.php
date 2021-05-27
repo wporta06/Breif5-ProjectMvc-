@@ -1,5 +1,5 @@
 <?php   
 
-define('BASE_URL', 'http://localhost/ooP/gestion-epmloyer/');
+define('BASE_URL', 'http://localhost/ooP/gestion-class/');
 
 ?>

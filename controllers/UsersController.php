@@ -8,11 +8,11 @@ class UsersController{
             if($result->username === $_POST["username"] && password_verify($_POST["password"],$result->password)){
                 $_SESSION["logged"] = true;
                 $_SESSION["username"] = $result->username;
-                $_SESSION["fullname"] = $result->fullname;
+                $_SESSION["matiere"] = $result->matiere;
                 $_SESSION["admin"] = $result->admin;
                 Redirect::to("home");
             }else{
-                Session::set("error","Pseudo ou mot de passe est incorrect");
+                Session::set("error","Username ou mot de passe est incorrect");
                 Redirect::to("login");
             }
         }
@@ -25,7 +25,7 @@ class UsersController{
         ];
         $password = password_hash($_POST["password"],PASSWORD_BCRYPT,$options);
         $data = array(
-            "fullname" => $_POST["fullname"],
+            "matiere" => $_POST["matiere"],
             "username" => $_POST["username"],
             "email" => $_POST["email"],
             "password" => $password,
@@ -41,4 +41,11 @@ class UsersController{
     public static function logout(){
         session_destroy();
     }
+
+
+    public function getAllUsers(){
+		$AllUser = TheClass::getUsers();
+
+		return $AllUser;
+	}
 }

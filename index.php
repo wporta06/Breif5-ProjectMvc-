@@ -5,7 +5,7 @@ require_once("./views/includes/header.php");
 $home = new HomeController();
 
 $pages = [
-        'home','dashboard','update','delete','add','register','login','logout'
+        'home','dashboard','update','delete','add','register','login','logout',
     ];
 
 if(isset($_GET['page'])){

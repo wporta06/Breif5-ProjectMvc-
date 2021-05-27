@@ -9,6 +9,20 @@ class TheClass {
 		// $stmt->close();
 		$stmt = null;
 	}
+	static public function checkReserve($classname,$groupnumber,$date,$time,$username){
+		$stmt = DB::connect()->prepare("SELECT count(*) FROM reserves WHERE classname='$classname' AND groupnumber='$groupnumber' AND date='$date' AND time='$time' AND username='$username'");
+		
+		$stmt->execute();
+		$result = $stmt->fetchColumn();
+
+		if($result>=1){
+			//ens non dispo
+			  return true;
+		}else{
+			return false;
+		}
+		
+	}
 
 	static public function getClasse($data){
 		$id = $data['id'];
@@ -79,5 +93,41 @@ class TheClass {
 		}catch(PDOException $ex){
 			echo 'erreur' . $ex->getMessage();
 		}
+	}
+
+
+	static public function getAllTime(){
+		$stmt = DB::connect()->prepare('SELECT * FROM classes');
+		$stmt->execute();
+		return $stmt->fetchAll();
+		// $stmt->close();
+		$stmt = null;
+	}
+
+
+	static public function addReserv($data){
+		$stmt = DB::connect()->prepare('INSERT INTO reserves (classname,groupnumber,date,time,username)
+			VALUES (:classname,:groupnumber,:date,:time,:username)');
+		$stmt->bindParam(':classname',$data['classname']);
+		$stmt->bindParam(':groupnumber',$data['groupnumber']);
+		$stmt->bindParam(':date',$data['date']);
+		$stmt->bindParam(':time',$data['time']);
+		$stmt->bindParam(':username',$data['username']);
+
+		if($stmt->execute()){
+			return 'ok';
+		}else{
+			return 'error';
+		}
+		// $stmt->close();
+		$stmt = null;
+	}
+
+	static public function getUsers(){
+		$stmt = DB::connect()->prepare('SELECT * FROM users');
+		$stmt->execute();
+		return $stmt->fetchAll();
+		// $stmt->close();
+		$stmt = null;
 	}
 }

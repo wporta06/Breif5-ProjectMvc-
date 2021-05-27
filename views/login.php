@@ -20,7 +20,7 @@
                     <form method="post" class="mr-1">
                         <div class="form-group">
                             <input autocomplete="off" type="text" class="form-control" name="username" 
-                            placeholder="Pseudo" id="">
+                            placeholder="user" id="">
                         </div>
                         <div class="form-group">
                             <input autocomplete="off" type="password" class="form-control" name="password" 

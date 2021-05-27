@@ -27,7 +27,7 @@
                         
 							<label for="nom">Class Name*</label>
 							<input type="text" name="classname" class="form-control" value="<?php echo $classe->classname; ?>">
-                            <input type="hidden" name="id" value="<?php echo $classe->id;?>">
+                            <input type="hidden" name="id" value="<?php echo $classe->id;?>"> <!-- important to sent id  -->
 						</div>
 						<div class="form-group">
 							<label for="prenom">Group Number*</label>
@@ -37,15 +37,16 @@
 						<div class="form-group">
                             <label for="prenom">Statut*</label>
 							<select class="form-control" name="statut">
-								<option value="1" <?php echo $classe->statut ? 'selected' : ''; ?>>1</option>
-								<option value="0"
-								<?php echo !$classe->statut ? 'selected' : ''; ?>
-								>0</option>
+								<option value="1" <?php echo $classe->statut ? 'selected' : ''; ?>>Reserved</option>
+								<option value="0" <?php echo !$classe->statut ? 'selected' : ''; ?>>Not Reserved</option>
 							</select>
 						</div>
+						
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary" name="submit">Update</button>
 						</div>
+
+					
                    
 					</form>
                    

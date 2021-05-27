@@ -21,13 +21,12 @@
                 <div class="card-body">
                     <form method="post" class="mr-1">
                         <div class="form-group">
-                            <input type="text"
-                            class="form-control"
-                            name="fullname" required autocomplete="off" placeholder="Nom & Prénom" id="">
+                            <input type="text"class="form-control"
+                            name="matiere" required autocomplete="off" placeholder="Matière" id="">
                         </div>
                         <div class="form-group">
                             <input type="text" autocomplete="off" class="form-control" name="username" 
-                            placeholder="Pseudo" id="">
+                            placeholder="username" id="">
                         </div>
                         <div class="form-group">
                             <input type="email" autocomplete="off" class="form-control" name="email" 
