@@ -9,21 +9,9 @@ class TheClass {
 		// $stmt->close();
 		$stmt = null;
 	}
-	static public function checkReserve($classname,$groupnumber,$date,$time,$username){
-		$stmt = DB::connect()->prepare("SELECT count(*) FROM reserves WHERE classname='$classname' AND groupnumber='$groupnumber' AND date='$date' AND time='$time' AND username='$username'");
-		
-		$stmt->execute();
-		$result = $stmt->fetchColumn();
 
-		if($result>=1){
-			//ens non dispo
-			  return true;
-		}else{
-			return false;
-		}
-		
-	}
-
+	
+// for update.php
 	static public function getClasse($data){
 		$id = $data['id'];
 		try{
@@ -76,24 +64,25 @@ class TheClass {
 			$stmt->execute(array(":id" => $id));
 			if($stmt->execute()){
 				return 'ok';
+				
 			}
 		}catch(PDOException $ex){
 			echo 'erreur' . $ex->getMessage();
 		}
 	}
 
-	static public function searchEmploye($data){
-		$search = $data['search'];
-		try{
-			$query = 'SELECT * FROM employes WHERE nom LIKE ? OR prenom LIKE ?';
-			$stmt = DB::connect()->prepare($query);
-			$stmt->execute(array('%'.$search.'%','%'.$search.'%'));
-			$employes = $stmt->fetchAll();
-			return $employes;
-		}catch(PDOException $ex){
-			echo 'erreur' . $ex->getMessage();
-		}
-	}
+	// static public function searchEmploye($data){
+	// 	$search = $data['search'];
+	// 	try{
+	// 		$query = 'SELECT * FROM employes WHERE nom LIKE ? OR prenom LIKE ?';
+	// 		$stmt = DB::connect()->prepare($query);
+	// 		$stmt->execute(array('%'.$search.'%','%'.$search.'%'));
+	// 		$employes = $stmt->fetchAll();
+	// 		return $employes;
+	// 	}catch(PDOException $ex){
+	// 		echo 'erreur' . $ex->getMessage();
+	// 	}
+	// }
 
 
 	static public function getAllTime(){
@@ -121,6 +110,21 @@ class TheClass {
 		}
 		// $stmt->close();
 		$stmt = null;
+	}
+
+	static public function checkReserve($classname,$groupnumber,$date,$time,$username){
+		$stmt = DB::connect()->prepare("SELECT count(*) FROM reserves WHERE classname='$classname' AND groupnumber='$groupnumber' AND date='$date' AND time='$time' AND username='$username'");
+		
+		$stmt->execute();
+		$result = $stmt->fetchColumn();
+
+		if($result>=1){
+			//ens not dispo
+			  return true;
+		}else{
+			return false;
+		}
+		
 	}
 
 	static public function getUsers(){

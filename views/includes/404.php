@@ -6,7 +6,7 @@
 					<h2 class="text-white">
 						Page Introuvable
 					</h2>
-					<a href="<?php echo BASE_URL;?>" class="btn btn-outline-secondary text-white">Back to Accueil</a>
+					<a href="<?php echo BASE_URL;?>login" class="btn btn-outline-secondary text-white">Back to Accueil</a>
 				</div>
 			</div>
 		</div>

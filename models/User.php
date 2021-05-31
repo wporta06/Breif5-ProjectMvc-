@@ -1,6 +1,7 @@
 <?php
 
 class User{
+//check login    
     static public function login($data){
         $username = $data["username"];
         try {
@@ -15,11 +16,11 @@ class User{
     }
 
 	
-///here
+//creat users
     static public function createUser($data){
-        $stmt = DB::connect()->prepare('INSERT INTO users (matiere
-        ,username,email,password)
-        VALUES (:matiere,:username,:email,:password)');
+        $query = 'INSERT INTO users (matiere,username,email,password)
+                     VALUES (:matiere,:username,:email,:password)';
+        $stmt = DB::connect()->prepare($query);
         $stmt->bindParam(':matiere',$data['matiere']);
         $stmt->bindParam(':username',$data['username']);
         $stmt->bindParam(':email',$data['email']);

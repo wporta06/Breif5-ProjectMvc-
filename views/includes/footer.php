@@ -3,13 +3,17 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
-
-<footer class="text-center text-lg-start bg-light text-muted">
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer class="text-center text-lg-start bg-light text-muted  fixed-bottom">
 
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
     © 2021 Copyright:
-    <a class="text-reset fw-bold" href="">walid.com</a>
+    <a class="text-reset fw-bold" href="<?php echo BASE_URL;?>login">walid.com</a>
   </div>
  
 </footer>

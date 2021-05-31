@@ -1,16 +1,18 @@
 <?php 
-	$Users = new UsersController();
-	$userss = $Users->getAllUsers();
-
-	$Classess = new ClassController();
-	$classes = $Classess->getAllClass();
-
-
+	// $Users = new UsersController();
+	// $userss = $Users->getAllUsers();
+	
 	// $Checkreserve = new ClassController();
 	// $checkk = $Checkreserve->check();
 
 	// $Times = new ClassController();
 	// $timess = $Times->getAllTimes();
+
+	$Classess = new ClassController();
+	$classes = $Classess->getAllClass();
+
+ 
+	
 	
     if(isset($_POST['submit'])){
 		$newClasse = new ClassController();
@@ -18,7 +20,7 @@
 	}
 ?>
 <script> 
-	//to change the Groupnumber after selecting class name
+	//to change the Groupnumber after selecting the class name
 	function sendGroupNumber()
  	{  
 		var x = document.getElementById("ClassNameid").value;

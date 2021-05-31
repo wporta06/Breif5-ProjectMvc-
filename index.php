@@ -1,6 +1,6 @@
 <?php
 require_once './autoload.php';
-require_once("./views/includes/header.php");
+require_once("./views/includes/header.php"); //call the header
 
 $home = new HomeController();
 
@@ -30,4 +30,4 @@ if(isset($_GET['page'])){
     $home->index("home");
 }
 
-require_once("./views/includes/footer.php");
+require_once("./views/includes/footer.php");    //call the footer

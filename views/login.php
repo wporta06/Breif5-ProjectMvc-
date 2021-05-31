@@ -6,6 +6,7 @@
 	//first, need to link with the controler to send NAME
     $loginUser = new UsersController();
     $loginUser->auth();
+    
 ?>
 <div class="container">
     <div class="row my-4">
@@ -20,7 +21,7 @@
                     <form method="post" class="mr-1">
                         <div class="form-group">
                             <input autocomplete="off" type="text" class="form-control" name="username" 
-                            placeholder="user" id="">
+                            placeholder="username" id="">
                         </div>
                         <div class="form-group">
                             <input autocomplete="off" type="password" class="form-control" name="password" 

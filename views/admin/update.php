@@ -27,7 +27,7 @@
                         
 							<label for="nom">Class Name*</label>
 							<input type="text" name="classname" class="form-control" value="<?php echo $classe->classname; ?>">
-                            <input type="hidden" name="id" value="<?php echo $classe->id;?>"> <!-- important to sent id  -->
+                            <input type="hidden" name="id" value="<?php echo $classe->id;?>"> <!-- important to send id  -->
 						</div>
 						<div class="form-group">
 							<label for="prenom">Group Number*</label>
@@ -45,9 +45,6 @@
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary" name="submit">Update</button>
 						</div>
-
-					
-                   
 					</form>
                    
 				</div>

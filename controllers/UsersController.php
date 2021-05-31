@@ -5,7 +5,7 @@ class UsersController{
         if(isset($_POST["submit"])){
             $data["username"] = $_POST["username"];
             $result = User::login($data);  //send to model
-            if($result->username === $_POST["username"] && password_verify($_POST["password"],$result->password)){
+            if($result->username === $_POST["username"] && password_verify($_POST["password"],$result->password)){  //password_verify function to check the pass in db and in the input
                 $_SESSION["logged"] = true;
                 $_SESSION["username"] = $result->username;
                 $_SESSION["matiere"] = $result->matiere;
@@ -42,10 +42,10 @@ class UsersController{
         session_destroy();
     }
 
+    
+    // public function getAllUsers(){
+	// 	$AllUser = TheClass::getUsers();
 
-    public function getAllUsers(){
-		$AllUser = TheClass::getUsers();
-
-		return $AllUser;
-	}
+	// 	return $AllUser;
+	// }
 }
